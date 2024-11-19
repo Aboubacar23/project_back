@@ -1,0 +1,273 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.9.0
+2 info using node@v22.11.0
+3 silly config load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/app/monannonce/.npmrc
+5 silly config load:file:/home/app/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm i sequelize
+8 verbose argv "i" "sequelize"
+9 verbose logfile logs-max:10 dir:/home/app/.npm/_logs/2024-11-19T14_46_15_393Z-
+10 verbose logfile /home/app/.npm/_logs/2024-11-19T14_46_15_393Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+13 silly idealTree buildDeps
+14 silly fetch manifest sequelize@*
+15 silly packumentCache full:https://registry.npmjs.org/sequelize cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/sequelize 302ms (cache miss)
+17 silly packumentCache full:https://registry.npmjs.org/sequelize set size:undefined disposed:false
+18 silly placeDep ROOT sequelize@6.37.5 OK for:  want: *
+19 silly fetch manifest @types/debug@^4.1.8
+20 silly packumentCache full:https://registry.npmjs.org/@types%2fdebug cache-miss
+21 silly fetch manifest @types/validator@^13.7.17
+22 silly packumentCache full:https://registry.npmjs.org/@types%2fvalidator cache-miss
+23 silly fetch manifest debug@^4.3.4
+24 silly packumentCache full:https://registry.npmjs.org/debug cache-miss
+25 silly fetch manifest dottie@^2.0.6
+26 silly packumentCache full:https://registry.npmjs.org/dottie cache-miss
+27 silly fetch manifest inflection@^1.13.4
+28 silly packumentCache full:https://registry.npmjs.org/inflection cache-miss
+29 silly fetch manifest lodash@^4.17.21
+30 silly packumentCache full:https://registry.npmjs.org/lodash cache-miss
+31 silly fetch manifest moment@^2.29.4
+32 silly packumentCache full:https://registry.npmjs.org/moment cache-miss
+33 http fetch GET 200 https://registry.npmjs.org/debug 128ms (cache revalidated)
+34 silly packumentCache full:https://registry.npmjs.org/debug set size:188929 disposed:false
+35 silly fetch manifest moment-timezone@^0.5.43
+36 silly packumentCache full:https://registry.npmjs.org/moment-timezone cache-miss
+37 http fetch GET 200 https://registry.npmjs.org/@types%2fdebug 140ms (cache miss)
+38 silly packumentCache full:https://registry.npmjs.org/@types%2fdebug set size:undefined disposed:false
+39 silly fetch manifest pg-connection-string@^2.6.1
+40 silly packumentCache full:https://registry.npmjs.org/pg-connection-string cache-miss
+41 http fetch GET 200 https://registry.npmjs.org/dottie 142ms (cache miss)
+42 silly packumentCache full:https://registry.npmjs.org/dottie set size:undefined disposed:false
+43 silly fetch manifest retry-as-promised@^7.0.4
+44 silly packumentCache full:https://registry.npmjs.org/retry-as-promised cache-miss
+45 http fetch GET 200 https://registry.npmjs.org/inflection 151ms (cache miss)
+46 silly packumentCache full:https://registry.npmjs.org/inflection set size:undefined disposed:false
+47 silly fetch manifest semver@^7.5.4
+48 silly packumentCache full:https://registry.npmjs.org/semver cache-miss
+49 http fetch GET 200 https://registry.npmjs.org/lodash 159ms (cache miss)
+50 silly packumentCache full:https://registry.npmjs.org/lodash set size:undefined disposed:false
+51 silly fetch manifest sequelize-pool@^7.1.0
+52 silly packumentCache full:https://registry.npmjs.org/sequelize-pool cache-miss
+53 http fetch GET 200 https://registry.npmjs.org/@types%2fvalidator 165ms (cache miss)
+54 silly packumentCache full:https://registry.npmjs.org/@types%2fvalidator set size:undefined disposed:false
+55 silly fetch manifest toposort-class@^1.0.1
+56 silly packumentCache full:https://registry.npmjs.org/toposort-class cache-miss
+57 http fetch GET 200 https://registry.npmjs.org/moment 168ms (cache miss)
+58 silly packumentCache full:https://registry.npmjs.org/moment set size:undefined disposed:false
+59 silly fetch manifest uuid@^8.3.2
+60 silly packumentCache full:https://registry.npmjs.org/uuid cache-miss
+61 http fetch GET 200 https://registry.npmjs.org/moment-timezone 73ms (cache miss)
+62 silly packumentCache full:https://registry.npmjs.org/moment-timezone set size:undefined disposed:false
+63 silly fetch manifest validator@^13.9.0
+64 silly packumentCache full:https://registry.npmjs.org/validator cache-miss
+65 http fetch GET 200 https://registry.npmjs.org/retry-as-promised 73ms (cache miss)
+66 silly packumentCache full:https://registry.npmjs.org/retry-as-promised set size:undefined disposed:false
+67 silly fetch manifest wkx@^0.5.0
+68 silly packumentCache full:https://registry.npmjs.org/wkx cache-miss
+69 http fetch GET 200 https://registry.npmjs.org/toposort-class 53ms (cache miss)
+70 silly packumentCache full:https://registry.npmjs.org/toposort-class set size:undefined disposed:false
+71 http fetch GET 200 https://registry.npmjs.org/sequelize-pool 61ms (cache miss)
+72 silly packumentCache full:https://registry.npmjs.org/sequelize-pool set size:undefined disposed:false
+73 http fetch GET 200 https://registry.npmjs.org/semver 73ms (cache miss)
+74 silly packumentCache full:https://registry.npmjs.org/semver set size:undefined disposed:false
+75 http fetch GET 200 https://registry.npmjs.org/uuid 66ms (cache miss)
+76 silly packumentCache full:https://registry.npmjs.org/uuid set size:undefined disposed:false
+77 http fetch GET 200 https://registry.npmjs.org/pg-connection-string 109ms (cache miss)
+78 silly packumentCache full:https://registry.npmjs.org/pg-connection-string set size:undefined disposed:false
+79 http fetch GET 200 https://registry.npmjs.org/validator 97ms (cache miss)
+80 silly packumentCache full:https://registry.npmjs.org/validator set size:undefined disposed:false
+81 http fetch GET 200 https://registry.npmjs.org/wkx 537ms (cache miss)
+82 silly packumentCache full:https://registry.npmjs.org/wkx set size:undefined disposed:false
+83 silly placeDep ROOT @types/debug@4.1.12 OK for: sequelize@6.37.5 want: ^4.1.8
+84 silly placeDep ROOT @types/validator@13.12.2 OK for: sequelize@6.37.5 want: ^13.7.17
+85 silly placeDep node_modules/sequelize debug@4.3.7 OK for: sequelize@6.37.5 want: ^4.3.4
+86 silly placeDep ROOT dottie@2.0.6 OK for: sequelize@6.37.5 want: ^2.0.6
+87 silly placeDep ROOT inflection@1.13.4 OK for: sequelize@6.37.5 want: ^1.13.4
+88 silly placeDep ROOT lodash@4.17.21 OK for: sequelize@6.37.5 want: ^4.17.21
+89 silly placeDep ROOT moment@2.30.1 OK for: sequelize@6.37.5 want: ^2.29.4
+90 silly placeDep ROOT moment-timezone@0.5.46 OK for: sequelize@6.37.5 want: ^0.5.43
+91 silly placeDep ROOT pg-connection-string@2.7.0 OK for: sequelize@6.37.5 want: ^2.6.1
+92 silly placeDep ROOT retry-as-promised@7.0.4 OK for: sequelize@6.37.5 want: ^7.0.4
+93 silly placeDep ROOT semver@7.6.3 OK for: sequelize@6.37.5 want: ^7.5.4
+94 silly placeDep ROOT sequelize-pool@7.1.0 OK for: sequelize@6.37.5 want: ^7.1.0
+95 silly placeDep ROOT toposort-class@1.0.1 OK for: sequelize@6.37.5 want: ^1.0.1
+96 silly placeDep ROOT uuid@8.3.2 OK for: sequelize@6.37.5 want: ^8.3.2
+97 silly placeDep ROOT validator@13.12.0 OK for: sequelize@6.37.5 want: ^13.9.0
+98 silly placeDep ROOT wkx@0.5.0 OK for: sequelize@6.37.5 want: ^0.5.0
+99 silly fetch manifest @types/ms@*
+100 silly packumentCache full:https://registry.npmjs.org/@types%2fms cache-miss
+101 silly fetch manifest ms@^2.1.3
+102 silly packumentCache full:https://registry.npmjs.org/ms cache-miss
+103 silly fetch manifest @types/node@*
+104 silly packumentCache full:https://registry.npmjs.org/@types%2fnode cache-miss
+105 http fetch GET 200 https://registry.npmjs.org/ms 46ms (cache revalidated)
+106 silly packumentCache full:https://registry.npmjs.org/ms set size:84885 disposed:false
+107 http fetch GET 200 https://registry.npmjs.org/@types%2fms 92ms (cache miss)
+108 silly packumentCache full:https://registry.npmjs.org/@types%2fms set size:undefined disposed:false
+109 http fetch GET 200 https://registry.npmjs.org/@types%2fnode 193ms (cache miss)
+110 silly packumentCache full:https://registry.npmjs.org/@types%2fnode set size:undefined disposed:false
+111 silly placeDep ROOT @types/ms@0.7.34 OK for: @types/debug@4.1.12 want: *
+112 silly placeDep ROOT @types/node@22.9.0 OK for: wkx@0.5.0 want: *
+113 silly fetch manifest undici-types@~6.19.8
+114 silly packumentCache full:https://registry.npmjs.org/undici-types cache-miss
+115 http fetch GET 200 https://registry.npmjs.org/undici-types 77ms (cache miss)
+116 silly packumentCache full:https://registry.npmjs.org/undici-types set size:undefined disposed:false
+117 silly placeDep ROOT undici-types@6.19.8 OK for: @types/node@22.9.0 want: ~6.19.8
+118 silly placeDep node_modules/sequelize ms@2.1.3 OK for: debug@4.3.7 want: ^2.1.3
+119 silly reify moves {}
+120 silly audit bulk request {
+120 silly audit   accepts: [ '1.3.8' ],
+120 silly audit   'array-flatten': [ '1.1.1' ],
+120 silly audit   'body-parser': [ '1.20.3' ],
+120 silly audit   bytes: [ '3.1.2' ],
+120 silly audit   'call-bind': [ '1.0.7' ],
+120 silly audit   'content-disposition': [ '0.5.4' ],
+120 silly audit   'content-type': [ '1.0.5' ],
+120 silly audit   cookie: [ '0.7.1' ],
+120 silly audit   'cookie-signature': [ '1.0.6' ],
+120 silly audit   debug: [ '2.6.9', '4.3.7' ],
+120 silly audit   'define-data-property': [ '1.1.4' ],
+120 silly audit   depd: [ '2.0.0' ],
+120 silly audit   destroy: [ '1.2.0' ],
+120 silly audit   'ee-first': [ '1.1.1' ],
+120 silly audit   encodeurl: [ '2.0.0', '1.0.2' ],
+120 silly audit   'es-define-property': [ '1.0.0' ],
+120 silly audit   'es-errors': [ '1.3.0' ],
+120 silly audit   'escape-html': [ '1.0.3' ],
+120 silly audit   etag: [ '1.8.1' ],
+120 silly audit   express: [ '4.21.1' ],
+120 silly audit   finalhandler: [ '1.3.1' ],
+120 silly audit   forwarded: [ '0.2.0' ],
+120 silly audit   fresh: [ '0.5.2' ],
+120 silly audit   'function-bind': [ '1.1.2' ],
+120 silly audit   'get-intrinsic': [ '1.2.4' ],
+120 silly audit   gopd: [ '1.0.1' ],
+120 silly audit   'has-property-descriptors': [ '1.0.2' ],
+120 silly audit   'has-proto': [ '1.0.3' ],
+120 silly audit   'has-symbols': [ '1.0.3' ],
+120 silly audit   hasown: [ '2.0.2' ],
+120 silly audit   'http-errors': [ '2.0.0' ],
+120 silly audit   'iconv-lite': [ '0.4.24' ],
+120 silly audit   inherits: [ '2.0.4' ],
+120 silly audit   'ipaddr.js': [ '1.9.1' ],
+120 silly audit   'media-typer': [ '0.3.0' ],
+120 silly audit   'merge-descriptors': [ '1.0.3' ],
+120 silly audit   methods: [ '1.1.2' ],
+120 silly audit   mime: [ '1.6.0' ],
+120 silly audit   'mime-db': [ '1.52.0' ],
+120 silly audit   'mime-types': [ '2.1.35' ],
+120 silly audit   ms: [ '2.0.0', '2.1.3' ],
+120 silly audit   negotiator: [ '0.6.3' ],
+120 silly audit   'object-inspect': [ '1.13.3' ],
+120 silly audit   'on-finished': [ '2.4.1' ],
+120 silly audit   parseurl: [ '1.3.3' ],
+120 silly audit   'path-to-regexp': [ '0.1.10' ],
+120 silly audit   'proxy-addr': [ '2.0.7' ],
+120 silly audit   qs: [ '6.13.0' ],
+120 silly audit   'range-parser': [ '1.2.1' ],
+120 silly audit   'raw-body': [ '2.5.2' ],
+120 silly audit   'safe-buffer': [ '5.2.1' ],
+120 silly audit   'safer-buffer': [ '2.1.2' ],
+120 silly audit   send: [ '0.19.0' ],
+120 silly audit   'serve-static': [ '1.16.2' ],
+120 silly audit   'set-function-length': [ '1.2.2' ],
+120 silly audit   setprototypeof: [ '1.2.0' ],
+120 silly audit   'side-channel': [ '1.0.6' ],
+120 silly audit   statuses: [ '2.0.1' ],
+120 silly audit   toidentifier: [ '1.0.1' ],
+120 silly audit   'type-is': [ '1.6.18' ],
+120 silly audit   unpipe: [ '1.0.0' ],
+120 silly audit   'utils-merge': [ '1.0.1' ],
+120 silly audit   vary: [ '1.1.2' ],
+120 silly audit   sequelize: [ '6.37.5' ],
+120 silly audit   '@types/debug': [ '4.1.12' ],
+120 silly audit   '@types/validator': [ '13.12.2' ],
+120 silly audit   dottie: [ '2.0.6' ],
+120 silly audit   inflection: [ '1.13.4' ],
+120 silly audit   lodash: [ '4.17.21' ],
+120 silly audit   moment: [ '2.30.1' ],
+120 silly audit   'moment-timezone': [ '0.5.46' ],
+120 silly audit   'pg-connection-string': [ '2.7.0' ],
+120 silly audit   'retry-as-promised': [ '7.0.4' ],
+120 silly audit   semver: [ '7.6.3' ],
+120 silly audit   'sequelize-pool': [ '7.1.0' ],
+120 silly audit   'toposort-class': [ '1.0.1' ],
+120 silly audit   uuid: [ '8.3.2' ],
+120 silly audit   validator: [ '13.12.0' ],
+120 silly audit   wkx: [ '0.5.0' ],
+120 silly audit   '@types/ms': [ '0.7.34' ],
+120 silly audit   '@types/node': [ '22.9.0' ],
+120 silly audit   'undici-types': [ '6.19.8' ]
+120 silly audit }
+121 silly tarball no local data for undici-types@https://registry.npmjs.org/undici-types/-/undici-types-6.19.8.tgz. Extracting by manifest.
+122 silly tarball no local data for wkx@https://registry.npmjs.org/wkx/-/wkx-0.5.0.tgz. Extracting by manifest.
+123 silly tarball no local data for @types/ms@https://registry.npmjs.org/@types/ms/-/ms-0.7.34.tgz. Extracting by manifest.
+124 silly tarball no local data for @types/node@https://registry.npmjs.org/@types/node/-/node-22.9.0.tgz. Extracting by manifest.
+125 silly tarball no local data for validator@https://registry.npmjs.org/validator/-/validator-13.12.0.tgz. Extracting by manifest.
+126 silly tarball no local data for uuid@https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz. Extracting by manifest.
+127 silly tarball no local data for toposort-class@https://registry.npmjs.org/toposort-class/-/toposort-class-1.0.1.tgz. Extracting by manifest.
+128 silly tarball no local data for sequelize-pool@https://registry.npmjs.org/sequelize-pool/-/sequelize-pool-7.1.0.tgz. Extracting by manifest.
+129 silly tarball no local data for retry-as-promised@https://registry.npmjs.org/retry-as-promised/-/retry-as-promised-7.0.4.tgz. Extracting by manifest.
+130 silly tarball no local data for moment@https://registry.npmjs.org/moment/-/moment-2.30.1.tgz. Extracting by manifest.
+131 silly tarball no local data for pg-connection-string@https://registry.npmjs.org/pg-connection-string/-/pg-connection-string-2.7.0.tgz. Extracting by manifest.
+132 silly tarball no local data for semver@https://registry.npmjs.org/semver/-/semver-7.6.3.tgz. Extracting by manifest.
+133 silly tarball no local data for inflection@https://registry.npmjs.org/inflection/-/inflection-1.13.4.tgz. Extracting by manifest.
+134 silly tarball no local data for dottie@https://registry.npmjs.org/dottie/-/dottie-2.0.6.tgz. Extracting by manifest.
+135 silly tarball no local data for @types/validator@https://registry.npmjs.org/@types/validator/-/validator-13.12.2.tgz. Extracting by manifest.
+136 silly tarball no local data for sequelize@https://registry.npmjs.org/sequelize/-/sequelize-6.37.5.tgz. Extracting by manifest.
+137 silly tarball no local data for @types/debug@https://registry.npmjs.org/@types/debug/-/debug-4.1.12.tgz. Extracting by manifest.
+138 silly tarball no local data for moment-timezone@https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.46.tgz. Extracting by manifest.
+139 silly tarball no local data for debug@https://registry.npmjs.org/debug/-/debug-4.3.7.tgz. Extracting by manifest.
+140 silly tarball no local data for lodash@https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz. Extracting by manifest.
+141 http fetch GET 200 https://registry.npmjs.org/@types/ms/-/ms-0.7.34.tgz 243ms (cache miss)
+142 http fetch GET 200 https://registry.npmjs.org/@types/debug/-/debug-4.1.12.tgz 256ms (cache miss)
+143 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 277ms
+144 silly audit report {}
+145 http fetch GET 200 https://registry.npmjs.org/pg-connection-string/-/pg-connection-string-2.7.0.tgz 266ms (cache miss)
+146 http fetch GET 200 https://registry.npmjs.org/debug/-/debug-4.3.7.tgz 265ms (cache miss)
+147 http fetch GET 200 https://registry.npmjs.org/toposort-class/-/toposort-class-1.0.1.tgz 271ms (cache miss)
+148 http fetch GET 200 https://registry.npmjs.org/dottie/-/dottie-2.0.6.tgz 274ms (cache miss)
+149 http fetch GET 200 https://registry.npmjs.org/inflection/-/inflection-1.13.4.tgz 281ms (cache miss)
+150 http fetch GET 200 https://registry.npmjs.org/retry-as-promised/-/retry-as-promised-7.0.4.tgz 293ms (cache miss)
+151 http fetch GET 200 https://registry.npmjs.org/sequelize-pool/-/sequelize-pool-7.1.0.tgz 299ms (cache miss)
+152 http fetch GET 200 https://registry.npmjs.org/undici-types/-/undici-types-6.19.8.tgz 313ms (cache miss)
+153 http fetch GET 200 https://registry.npmjs.org/wkx/-/wkx-0.5.0.tgz 323ms (cache miss)
+154 http fetch GET 200 https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz 367ms (cache miss)
+155 http fetch GET 200 https://registry.npmjs.org/semver/-/semver-7.6.3.tgz 388ms (cache miss)
+156 http fetch GET 200 https://registry.npmjs.org/@types/validator/-/validator-13.12.2.tgz 517ms (cache miss)
+157 http fetch GET 200 https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.46.tgz 528ms (cache miss)
+158 http fetch GET 200 https://registry.npmjs.org/@types/node/-/node-22.9.0.tgz 560ms (cache miss)
+159 http fetch GET 200 https://registry.npmjs.org/validator/-/validator-13.12.0.tgz 584ms (cache miss)
+160 http fetch GET 200 https://registry.npmjs.org/sequelize/-/sequelize-6.37.5.tgz 735ms (cache miss)
+161 http fetch GET 200 https://registry.npmjs.org/moment/-/moment-2.30.1.tgz 833ms (cache miss)
+162 http fetch GET 200 https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz 855ms (cache miss)
+163 silly ADD node_modules/undici-types
+164 silly ADD node_modules/@types/node
+165 silly ADD node_modules/@types/ms
+166 silly ADD node_modules/wkx
+167 silly ADD node_modules/validator
+168 silly ADD node_modules/uuid
+169 silly ADD node_modules/toposort-class
+170 silly ADD node_modules/sequelize-pool
+171 silly ADD node_modules/semver
+172 silly ADD node_modules/retry-as-promised
+173 silly ADD node_modules/pg-connection-string
+174 silly ADD node_modules/moment-timezone
+175 silly ADD node_modules/moment
+176 silly ADD node_modules/lodash
+177 silly ADD node_modules/inflection
+178 silly ADD node_modules/dottie
+179 silly ADD node_modules/@types/validator
+180 silly ADD node_modules/@types/debug
+181 silly ADD node_modules/sequelize
+182 silly ADD node_modules/sequelize/node_modules/ms
+183 silly ADD node_modules/sequelize/node_modules/debug
+184 verbose cwd /home/app/monannonce
+185 verbose os Linux 5.15.0-125-generic
+186 verbose node v22.11.0
+187 verbose npm  v10.9.0
+188 verbose exit 0
+189 info ok
