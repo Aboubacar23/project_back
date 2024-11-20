@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const initRoutes = require('./routes');
 const initModels = require('./models')
-
+require('dotenv').config()
 app.get('/', (req, res) => {
     res.send('Home page');
 })

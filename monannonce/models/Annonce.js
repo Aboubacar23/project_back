@@ -1,25 +1,22 @@
-const mongoose = require('mongoose');
+const { DataTypes } = require('sequelize')
 
-const annonceSchema = new mongoose.Schema({
-    titre: { type: String, required: true, maxlength: 255 }, 
-    description: { type: String, required: true }, 
-    prix: { type: Number, required: true, min: 0 }, 
-    statut: { 
-        type: String, 
-        enum: ['Visible', 'Non-visible'], 
-        default: 'Visible' 
-    }, 
-    annonceur: {}, 
-    categorie: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Categorie', 
-        required: true 
-    }, 
-    date_publication: { 
-        type: Date, 
-        default: Date.now 
-    }, 
-});
+function init(sequelize)
+{
+    const Annonce = sequelize.define(
+        'Annonce',
+        {
+            titre : { type: DataTypes.STRING, allowNull: false},
+            desciption : { type: DataTypes.STRING},
+            prix : { type: DataTypes.FLOAT},
+            roles: {
+                type: DataTypes.ENUM('Visible', 'Non-visible'), // Ajout de l'enum ici
+                allowNull: false, // Cela rend ce champ obligatoire
+                defaultValue: 'Visible' // Facultatif : valeur par défaut si aucune n'est fournie
+            }
+        }
+    )
 
+    return Annonce;
+}
 
-module.exports = mongoose.model('Annonce', annonceSchema);
+module.exports = init;

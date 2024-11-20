@@ -1,15 +1,22 @@
 const {Sequelize}  = require('sequelize');
 const User = require('./User');
+const Annonce = require('./Annonce');
 async function initModels()
 {
     //la connexion à la base
-    const sequelize = new Sequelize('mariadb://root:root@db:3306/')
+    //const sequelize = new Sequelize('mariadb://root:root@db:3306/')
+    const sequelize = new Sequelize(`mariadb://${process.env.DB_USER}:${process.env.DB_PWD}@${process.env.DB_HOST}:${process.env.DB_PORT}/`)
+
 
     try {
         await sequelize.authenticate();
         console.log('Connection établie aavec succès !');
-        User(sequelize);
-        return sequelize;
+        const user = User(sequelize);
+        const annonce = Annonce(sequelize);
+
+        user.hasMany(annonce);
+        annonce.belongsTo(user);
+        //return sequelize;
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
