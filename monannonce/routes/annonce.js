@@ -4,17 +4,17 @@ const router = express.Router();
 router.get('/list', (request, response) => {
     response.send('la liste des annonces');
 })
-router.get('/new', (request, response) => {
+router.post('/new', (request, response) => {
     response.send("ajoute d'une annonce");
 })
-router.get('/show', (request, response) => {
+router.get('/show/:id', (request, response) => {
     response.send("détails d'une annonce");
 })
-router.get('/modifier', (request, response) => {
+router.put('/modifier/:id', (request, response) => {
     response.send("modifier une annonce");
 })
 
-router.get('/delete', (request, response) => {
+router.delete('/delete/:id', (request, response) => {
     response.send("suppression d'une annonce");
 })
 module.exports = router;
