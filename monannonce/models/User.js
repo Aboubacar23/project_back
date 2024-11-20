@@ -1,11 +1,24 @@
-const mongoose = require('mongoose')
+const { DataTypes } = require('sequelize')
 
-const userSchema = new mongoose.Schema({
-    nom : {type : String, required : true },
-    prenom : {type : String, required : true},
-    password: { type: String, required: true },
-    roles: { type: String, enum: ['admin', 'annonceur', 'acheteur'], required: true },
-    date_creation: { type: Date, default: Date.now },
-})
+function init(sequelize)
+{
+    const User = sequelize.define(
+        'User',
+        {
+            nom : { type: DataTypes.STRING, allowNull: true},
+            prenom : { type: DataTypes.STRING},
+            password : { type: DataTypes.STRING},
+            roles: {
+                type: DataTypes.ENUM('admin', 'annonceur', 'acheteur'), // Ajout de l'enum ici
+                allowNull: false, // Cela rend ce champ obligatoire
+                defaultValue: 'acheteur' // Facultatif : valeur par défaut si aucune n'est fournie
+            }
+            //date_creation : { type: DataTyoes.DATE},
+        }
+    )
 
-module.exports = mongoose.model('User', userSchema);
+    return User;
+}
+
+
+module.exports = init;

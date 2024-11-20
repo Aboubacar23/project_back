@@ -1,6 +1,7 @@
-const express = require('express')
-const app = express()
-const initRoutes = require('./routes')
+const express = require('express');
+const app = express();
+const initRoutes = require('./routes');
+const initModels = require('./models')
 
 app.get('/', (req, res) => {
     res.send('Home page');
@@ -9,6 +10,7 @@ app.get('/', (req, res) => {
 app.use(express.json());
 
 initRoutes(app)
+const sequelize = initModels()
 
 app.listen(3000, () => {
     console.log('serveur lancer ....');
