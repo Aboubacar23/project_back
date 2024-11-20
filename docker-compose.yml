@@ -11,9 +11,9 @@ services:
     depends_on:
        - 'monannonce-db'
        - 'monannonce-mailhog'
-    links:
-       - 'monannonce-db:db'
-       - 'monannonce-mailhog:mailhog'
+ #   links:
+ #     - 'monannonce-db:db'
+ #      - 'monannonce-mailhog:mailhog'
     environment:
       - NODE_ENV=development
     volumes:
