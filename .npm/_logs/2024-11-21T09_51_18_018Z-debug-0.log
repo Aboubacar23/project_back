@@ -5,10 +5,10 @@
 4 silly config load:file:/home/app/monannonce/.npmrc
 5 silly config load:file:/home/app/.npmrc
 6 silly config load:file:/usr/local/etc/npmrc
-7 verbose title npm exec sequelize-cli init
-8 verbose argv "exec" "--" "sequelize-cli" "init"
-9 verbose logfile logs-max:10 dir:/home/app/.npm/_logs/2024-11-20T16_00_50_115Z-
-10 verbose logfile /home/app/.npm/_logs/2024-11-20T16_00_50_115Z-debug-0.log
+7 verbose title npm exec sequelize-cli db:migrate
+8 verbose argv "exec" "--" "sequelize-cli" "db:migrate"
+9 verbose logfile logs-max:10 dir:/home/app/.npm/_logs/2024-11-21T09_51_18_018Z-
+10 verbose logfile /home/app/.npm/_logs/2024-11-21T09_51_18_018Z-debug-0.log
 11 silly logfile start cleaning logs, removing 1 files
 12 silly logfile done cleaning log files
 13 verbose cwd /home/app/monannonce
