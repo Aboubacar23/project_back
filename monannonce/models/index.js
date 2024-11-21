@@ -1,18 +1,37 @@
-const {Sequelize}  = require('sequelize');
-const User = require('./User');
-async function initModels()
-{
-    //la connexion à la base
-    const sequelize = new Sequelize('mariadb://root:root@db:3306/')
+'use strict';
 
-    try {
-        await sequelize.authenticate();
-        console.log('Connection établie aavec succès !');
-        User(sequelize);
-        return sequelize;
-    } catch (error) {
-        console.error('Unable to connect to the database:', error);
-    }
-}
+const fs = require('fs');
+const path = require('path');
+const Sequelize = require('sequelize');
+const process = require('process');
+const basename = path.basename(__filename);
+const env = process.env.NODE_ENV || 'development';
+const db = {};
 
-module.exports =  initModels;
+const sequelize = new Sequelize(`mariadb://${process.env.DB_USER}:${process.env.DB_PWD}@${process.env.DB_HOST}:${process.env.DB_PORT}/`)
+
+fs
+  .readdirSync(__dirname)
+  .filter(file => {
+    return (
+      file.indexOf('.') !== 0 &&
+      file !== basename &&
+      file.slice(-3) === '.js' &&
+      file.indexOf('.test.js') === -1
+    );
+  })
+  .forEach(file => {
+    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+    db[model.name] = model;
+  });
+
+Object.keys(db).forEach(modelName => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
+
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
+module.exports = db;

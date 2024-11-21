@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const initRoutes = require('./routes');
-const initModels = require('./models')
-
+const initModels = require('./modeles')
+require('dotenv').config()
 app.get('/', (req, res) => {
     res.send('Home page');
 })
