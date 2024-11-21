@@ -5,9 +5,9 @@
 
      // Exécute les validations basées sur le schéma
      await checkSchema({
-         nom: {
+         password: {
              notEmpty: {
-                 errorMessage: 'Le champ nom est requis',
+                 errorMessage: 'Le champ password est requis',
              },
          },
          email: {
@@ -22,8 +22,8 @@
 
      // Récupère les résultats des validations
      const errors = validationResult(req);
-     console.log('Req Body ..............')
-     console.log(req.body);
+     //console.log('Req Body ..............')
+     //console.log(req.body);
 
      if (!errors.isEmpty())
      {
