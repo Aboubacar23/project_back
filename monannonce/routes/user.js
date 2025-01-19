@@ -43,9 +43,9 @@ router.post('/login', validatorUser, async (req, res) => {
         where : {email}});
 
       if (!user) return res.status(404).json({status : "Not found"});
-      console.log('Mon mot de passe');
-    console.log(user.password);
-    console.log(password);
+        console.log('Mon mot de passe');
+      console.log(user.password);
+      console.log(password);
 
       const isPasswordValidated = await bcrypt.compare(password,user.password);
       console.log('Mon mot de passe decrypté');
