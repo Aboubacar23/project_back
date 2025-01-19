@@ -1,3 +1,4 @@
 ##.npm
-db-data
+#db-data
 ##monannonce
+monannonce/node_modules/*
