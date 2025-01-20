@@ -1,0 +1,47 @@
+version: '3.1'
+
+services:
+  # NodeJS Service
+  monannonce-node:
+    container_name: "monannonce-API-nodejs"
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: 'nodemon app.js'
+    depends_on:
+       - 'monannonce-db'
+       - 'monannonce-mailhog'
+    links:
+      - 'monannonce-db:db'
+      - 'monannonce-mailhog:mailhog'
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - './:/home/app:rw'
+    ports:
+      - "3000:3000"
+    networks:
+      - default
+    expose:
+      - "3000"
+    working_dir: '/home/app/monannonce'
+  monannonce-mailhog:
+    image: mailhog/mailhog
+    ports: 
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
+  # database
+  monannonce-db:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE : my_annonce_db
+    volumes:
+      - './db-data:/var/lib/mysql:rw'
+  # Database client
+  monannonce-adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
