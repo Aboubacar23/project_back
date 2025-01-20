@@ -33,8 +33,8 @@ router.post('/register', validatorUser, async  (req, res, next) => {
       details: err.errors
     })
   }
-
 })
+
 
 router.post('/login', validatorUser, async (req, res) => {
   try {
@@ -43,9 +43,6 @@ router.post('/login', validatorUser, async (req, res) => {
         where : {email}});
 
       if (!user) return res.status(404).json({status : "Not found"});
-      console.log('Mon mot de passe');
-    console.log(user.password);
-    console.log(password);
 
       const isPasswordValidated = await bcrypt.compare(password,user.password);
       console.log('Mon mot de passe decrypté');
@@ -66,25 +63,121 @@ router.post('/login', validatorUser, async (req, res) => {
   }
 })
 
-router.get('/list', (req, res) => {
-  res.status(201).json({
-    statut: 'succès',
-    message: 'Utilisateurs',
-  })
+router.get('/lists', async (req, res) => {
+     try {
+         const users = await User.findAll({attributes : ['id', 'nom', 'prenom', 'email', 'password']});
+
+         return res.status(200).json({
+             status: 'Success',
+             users,
+         });
+     }catch (err)
+     {
+         console.log('ERROR', err);
+         return  res.status(400).json({
+             status: 'err',
+             details: err.errors || err.message,
+         })
+
+     }
 })
 
-router.put('/edit/:id', validatorUser, (req, res, next) => {
-  console.log(req.body);
+router.put('/edit/:id', validatorUser, async (req, res, next) => {
   const userId = req.params.id; // Récupération de l'id depuis les paramètres de la requête
+  const {nom, prenom, email, password} = req.body;
+  const transaction = await sequelize.transaction();
+  const hashePassword = await  bcrypt.hash(password, 8);
 
-  res.status(201).json({
-    statut: 'succès',
-    message: `Utilisateur avec l'ID ${userId} modifié avec succès`,
-  })
+    try {
+      const user = await User.findByPk(userId);
+      if (!user)
+      {
+          return res.status(404).json({
+              status: 'error',
+              message: `User avec ID ${userId} introuvable`,
+          });
+      }
+
+    await user.update({nom, prenom, email, password:hashePassword}, {transaction});
+    transaction.commit();
+
+    return res.status(200).json({
+        status: 'success',
+        message: `Utilisateur avec l'ID ${userId} modifié avec succès`,
+        user: {
+            id: user.id,
+            nom: user.nom,
+            prenom: user.prenom,
+            email: user.email,
+            password: user.password
+        },
+    })
+  }catch (err) {
+        console.log('ERROR', err);
+        return res.status(400).json({
+            status: 'error',
+            details: err.errors || err.message,
+        });
+    }
+});
+
+router.delete('/delete/:id', async  (req, res) => {
+    const userId = req.params.id; // ID de l'utilisateur à supprimer
+
+    try {
+        // Rechercher l'utilisateur
+        const user = await User.findByPk(userId);
+
+        if (!user) {
+            return res.status(404).json({
+                status: 'error',
+                message: `Utilisateur avec l'ID ${userId} introuvable`,
+            });
+        }
+
+        // Supprimer l'utilisateur
+        await user.destroy();
+
+        return res.status(200).json({
+            status: 'success',
+            message: `Utilisateur avec l'ID ${userId} supprimé avec succès`,
+        });
+    } catch (err) {
+        console.log('ERROR', err);
+        return res.status(400).json({
+            status: 'error',
+            details: err.errors || err.message,
+        });
+    }
 })
 
-router.delete('/delete/:id', (request, response) => {
-  response.send("suppression de l'user");
-})
+router.get('/show/:id', async (req, res) => {
+    const userId = req.params.id;
+
+    try {
+        const user = await User.findByPk(userId, {
+            attributes : ['id', 'nom', 'prenom', 'email', 'password']
+        });
+
+        if (!user)
+        {
+            return res.status(404).json({
+                status: 'error',
+                message: `User avec ID ${userId} introuvable`,
+            });
+        }
+
+        return res.status(200).json({
+            status: 'success',
+            user,
+        });
+    }catch (err){
+        console.log('ERROR', err);
+        return res.status(400).json({
+            status: 'error',
+            details: err.errors || err.message
+        });
+    }
+});
 
 module.exports = router;
