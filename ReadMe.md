@@ -23,8 +23,11 @@ Avant de commencer, assurer d'avoir les outils suivants installés :
    git clone https://github.com/Aboubacar23/project_back.git
    cd project_back
    ```
-
-2. Lance les conteneurs Docker :
+2. Installe les dépendances :
+   ```bash
+   docker compose run monannonce-node npm install
+   ```
+3. Lance les conteneurs Docker :
    ```bash
    docker-compose up -d
    ```
@@ -34,10 +37,6 @@ Avant de commencer, assurer d'avoir les outils suivants installés :
    - Un conteneur pour la base de données MySQL
    - Un conteneur pour Adminer (interface de gestion de la base de données)
 
-3. Installe les dépendances :
-   ```bash
-   docker compose run monannonce-node npm install
-   ```
 
 ## Utilisation d'Adminer pour gérer la base de données
 
