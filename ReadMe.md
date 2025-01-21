@@ -13,7 +13,7 @@ Ce projet est le backend du projet MonAnnonce. Il utilise Node.js, Express.js, S
 Avant de commencer, assurer d'avoir les outils suivants installés :
 
 - [Docker](https://www.docker.com/)
-- [Node.js](https://nodejs.org/) (si nécessaire pour tester localement sans Docker)
+- [Node.js](https://nodejs.org/)
 - [Adminer](https://www.adminer.org/) (inclus dans Docker Compose pour gérer la base de données)
 
 ## Installation
@@ -44,7 +44,7 @@ Avant de commencer, assurer d'avoir les outils suivants installés :
 1. Accédez à Adminer en ouvrant votre navigateur et en visitant : `http://localhost:8080`
 
 2. Remplissez les informations suivantes pour vous connecter :
-   - **Système** : MySQL
+   
    - **Serveur** : `monannonce-db`
    - **Utilisateur** : `root`
    - **Mot de passe** : `root`
