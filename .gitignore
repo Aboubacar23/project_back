@@ -1,7 +1,6 @@
 ##.npm
 #db-data
 ##monannonce
-monannonce/.env
 monannonce/node_modules/*
 .npm/
 db-data/*
