@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { sequelize, Signalement } = require('../models');
+const { sequelize, Signalement, User} = require('../models');
 
 // Route pour lister tous les signalements
 router.get('/list', async (req, res) => {
@@ -26,7 +26,18 @@ router.post('/new', async (req, res) => {
     try {
         transaction = await sequelize.transaction();
 
-        const { objet, message } = req.body;
+        const { objet, message, user_id, annonce_id } = req.body;
+
+        const user = await User.findByPk(user_id);
+        if (!user) {
+            throw new Error("User n'existe pas !");
+        }
+
+        const annonce = await User.findByPk(annonce_id);
+        if (!annonce) {
+            throw new Error("Annonce n'existe pas !");
+        }
+
         if (!objet || !message) {
             return res.status(400).json({
                 status: 'error',
@@ -41,6 +52,8 @@ router.post('/new', async (req, res) => {
         return res.status(201).json({
             status: 'success',
             signalement,
+            user_id,
+            annonce_id
         });
     } catch (err) {
         if (transaction) await transaction.rollback();
@@ -88,7 +101,17 @@ router.put('/edit/:id', async (req, res) => {
     try {
         transaction = await sequelize.transaction();
 
-        const { objet, message } = req.body;
+        const { objet, message, user_id, annonce_id } = req.body;
+
+        const user = await User.findByPk(user_id);
+        if (!user) {
+            throw new Error("User n'existe pas !");
+        }
+
+        const annonce = await User.findByPk(annonce_id);
+        if (!annonce) {
+            throw new Error("Annonce n'existe pas !");
+        }
 
         const signalement = await Signalement.findByPk(signalementID);
         if (!signalement) {

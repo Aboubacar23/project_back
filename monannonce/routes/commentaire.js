@@ -1,35 +1,33 @@
 const express = require('express');
 const router = express.Router();
 const { validatorCommentaire } = require("../middleware/commentaire");
-const { Commentaire } = require("../models"); 
+const { Commentaire, User} = require("../models");
+const commentaireController = require("../controllers/commentaireController");
 
 // Récupérer la liste des commentaires
-router.get('/list', async (req, res) => {
-    try {
-        const commentaires = await Commentaire.findAll(); 
-        res.status(200).json({
-            statut: 'succès',
-            message: 'Liste des commentaires.',
-            data: commentaires,
-        });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({
-            statut: 'erreur',
-            message: 'Une erreur est survenue lors de la récupération des commentaires.',
-        });
-    }
-});
+router.get('/list', commentaireController.listCommentaire);
 
 // Ajouter un nouveau commentaire
 router.post('/new', validatorCommentaire, async (req, res) => {
     try {
-        const { objet, description, date_commentaire } = req.body;
+        const { objet, description, date_commentaire, user_id, annonce_id } = req.body;
+
+        const user = await User.findByPk(user_id);
+        if (!user) {
+            throw new Error("User n'existe pas !");
+        }
+
+        const annonce = await User.findByPk(annonce_id);
+        if (!annonce) {
+            throw new Error("Annonce n'existe pas !");
+        }
 
         // Créer un nouveau commentaire dans la base de données
         const commentaireAjoute = await Commentaire.create({
             objet,
             description,
+            user_id,
+            annonce_id,
             date_commentaire: date_commentaire || new Date(),
         });
 
@@ -52,7 +50,7 @@ router.get('/show/:id', async (req, res) => {
     try {
         const { id } = req.params;
 
-        const commentaire = await Commentaire.findByPk(id); 
+        const commentaire = await Commentaire.findByPk(id);
         if (!commentaire) {
             return res.status(404).json({
                 statut: 'erreur',
@@ -78,9 +76,20 @@ router.get('/show/:id', async (req, res) => {
 router.put('/edit/:id', validatorCommentaire, async (req, res) => {
     try {
         const { id } = req.params;
-        const { objet, description, date_commentaire } = req.body;
+        const { objet, description, date_commentaire, user_id, annonce_id } = req.body;
 
         const commentaire = await Commentaire.findByPk(id);
+
+        const user = await User.findByPk(user_id);
+        if (!user) {
+            throw new Error("User n'existe pas !");
+        }
+
+        const annonce = await User.findByPk(annonce_id);
+        if (!annonce) {
+            throw new Error("Annonce n'existe pas !");
+        }
+
         if (!commentaire) {
             return res.status(404).json({
                 statut: 'erreur',
@@ -93,6 +102,8 @@ router.put('/edit/:id', validatorCommentaire, async (req, res) => {
             objet,
             description,
             date_commentaire,
+            user_id,
+            annonce_id,
         });
 
         res.status(200).json({
