@@ -1,11 +1,12 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const commentaireController = require("../controllers/commentaireController");
+const categorieController = require('../controllers/categorieController');
 
-router.get("/list", commentaireController.listCommentaires);
-router.post("/new", commentaireController.createCommentaire);
-router.get("/show/:id", commentaireController.showCommentaire);
-router.put("/edit/:id", commentaireController.editCommentaire);
-router.delete("/delete/:id", commentaireController.deleteCommentaire);
+
+router.get('/list', categorieController.listCategories);
+router.post('/new', categorieController.createCategorie);
+router.get('/show/:id', categorieController.showCategorie);
+router.put('/edit/:id', categorieController.editCategorie);
+router.delete('/delete/:id', categorieController.deleteCategorie);
 
 module.exports = router;
