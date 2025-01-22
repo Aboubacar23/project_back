@@ -21,6 +21,11 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
+      role: {
+        type: Sequelize.ENUM('admin', 'annonceur', 'acheteur'), // Ajout de l'énumération pour le champ role
+        allowNull: false,
+        defaultValue: 'acheteur' // Définir une valeur par défaut
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -32,6 +37,7 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
+    // Supprimer le champ ENUM lors de la suppression de la table
     await queryInterface.dropTable('Users');
   }
 };
