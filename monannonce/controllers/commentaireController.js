@@ -1,4 +1,5 @@
 const { sequelize, Commentaire, User, Annonce } = require('../models');
+const {mailer} = require("../services/mailer");
 
 // Liste des commentaires
 exports.listCommentaires = async (req, res) => {
@@ -37,7 +38,27 @@ exports.createCommentaire = async (req, res) => {
             { objet, date_commentaire, description, user_id, annonce_id },
             { transaction }
         );
+
+        const annonce = await Annonce.findByPk(annonce_id);
+        const user = await User.findByPk(annonce.user_id);
+        if (!user)
+        {
+            throw new Error("Pas de user associé à ce commentaire");
+        }
+
+        if (!annonce)
+        {
+            throw new Error("Pas de user associé à ce commentaire");
+        }
+
         await transaction.commit();
+        const mailing = await mailer(
+            user.email,
+            'bar@example.com',
+            commentaire.objet,
+            commentaire.description,
+            commentaire.description
+        );
 
         return res.status(201).json({
             status: 'success',

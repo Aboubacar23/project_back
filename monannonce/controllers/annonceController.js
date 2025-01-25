@@ -1,4 +1,5 @@
-const { sequelize, Annonce, User } = require('../models');
+const { sequelize, Annonce, User, Commentaire } = require('../models');
+const {mailer} = require("../services/mailer");
 
 exports.listAnnonces = async (req, res) => {
     try {
@@ -86,7 +87,24 @@ exports.editAnnonce = async (req, res) => {
 exports.showAnnonce = async (req, res) => {
     const annonceID = req.params.id;
     try {
-        const annonce = await Annonce.findByPk(annonceID);
+        const annonce = await Annonce.findByPk(annonceID, {
+            include: [
+                {
+                    model: Commentaire,
+                    as: 'commentaires',
+                    attributes : ['id','objet', 'description', 'createdAt', 'updatedAt'],
+                    include: [
+                        {
+                            model: User,
+                            as: 'user',
+                            attributes: ['id', 'nom', 'prenom', 'email'], // Attributs utilisateur à inclure
+                        },
+                    ],
+                },
+                { model: User, as: 'user', attributes: ['id', 'nom', 'prenom', 'email'] },
+            ]
+        });
+        console.log(annonce);
         if (!annonce) {
             return res.status(404).json({
                 status: 'error',
@@ -130,3 +148,27 @@ exports.deleteAnnonce = async (req, res) => {
         });
     }
 };
+
+exports.sendComment = async (req, res, next) =>
+{
+    console.log('+++++++++++++++++++')
+    try {
+        const mailing = await mailer(
+            'conde@gmail.com',
+            'bar@example.com',
+            'Hello !',
+            'TEST',
+            '<h1>TEST</h1>'
+        );
+        if (mailing === true) {
+            return res.json({ success: true });
+        }
+        return res.status(400).json({ success: false, error: mailing });
+    } catch (err) {
+        console.log('ERROR', err);
+        return res.status(400).json({
+            status: 'error',
+            details: err.errors || err.message,
+        });
+    }
+}
