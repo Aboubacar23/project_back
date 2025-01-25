@@ -7,5 +7,6 @@ router.post('/new',annonceController.createAnnonce);
 router.put('/edit/:id',annonceController.editAnnonce);
 router.get('/show/:id', annonceController.showAnnonce);
 router.delete('/delete/:id', annonceController.deleteAnnonce)
+router.post('/sendComment', annonceController.sendComment)
 
 module.exports = router;
