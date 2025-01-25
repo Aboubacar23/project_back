@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 // Liste des utilisateurs
 exports.listUsers = async (req, res) => {
     try {
-        const users = await User.findAll({ attributes: ['id', 'nom', 'prenom', 'email', 'role'] });
+        const users = await User.findAll();
         return res.status(200).json({
             status: 'success',
             users,
@@ -51,6 +51,7 @@ exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ where: { email } });
+        console.log(user);
 
         if (!user) return res.status(404).json({ status: 'Not found' });
 
@@ -139,10 +140,7 @@ exports.deleteUser = async (req, res) => {
 exports.showUser = async (req, res) => {
     const userId = req.params.id;
     try {
-        const user = await User.findByPk(userId, {
-            attributes: ['id', 'nom', 'prenom', 'email', 'role'],
-        });
-
+        const user = await User.findByPk(userId);
         if (!user) {
             return res.status(404).json({
                 status: 'error',
