@@ -20,8 +20,8 @@ exports.listAnnonces = async (req, res) => {
 exports.createAnnonce = async (req, res) => {
     const transaction = await sequelize.transaction();
     try {
-        const { titre, description, prix, image, statut, categorie, user_id } = req.body;
-
+        const { titre, description, prix, statut, categorie, user_id } = req.body;
+        const image = req.file ? req.file.path : null;
         const user = await User.findByPk(user_id);
         if (!user) {
             throw new Error("User n'existe pas !");
@@ -31,6 +31,8 @@ exports.createAnnonce = async (req, res) => {
             { titre, description, prix, image, statut, categorie, user_id },
             { transaction }
         );
+        console.log("******Annonce*********");
+        console.log(annonce);
         await transaction.commit();
 
         return res.status(201).json({
@@ -104,7 +106,7 @@ exports.showAnnonce = async (req, res) => {
                 { model: User, as: 'user', attributes: ['id', 'nom', 'prenom', 'email'] },
             ]
         });
-        console.log(annonce);
+
         if (!annonce) {
             return res.status(404).json({
                 status: 'error',
@@ -151,7 +153,6 @@ exports.deleteAnnonce = async (req, res) => {
 
 exports.sendComment = async (req, res, next) =>
 {
-    console.log('+++++++++++++++++++')
     try {
         const mailing = await mailer(
             'conde@gmail.com',

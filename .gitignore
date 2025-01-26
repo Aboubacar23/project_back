@@ -3,4 +3,5 @@
 ##monannonce
 monannonce/node_modules/*
 .npm/
+.env
 db-data/*

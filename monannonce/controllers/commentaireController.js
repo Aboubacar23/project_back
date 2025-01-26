@@ -38,6 +38,8 @@ exports.createCommentaire = async (req, res) => {
             { objet, date_commentaire, description, user_id, annonce_id },
             { transaction }
         );
+        console.log("--------------------------------------------------");
+        console.log("je suis là");
 
         const annonce = await Annonce.findByPk(annonce_id);
         const user = await User.findByPk(annonce.user_id);
@@ -52,7 +54,7 @@ exports.createCommentaire = async (req, res) => {
         }
 
         await transaction.commit();
-        const mailing = await mailer(
+       const mailing = await mailer(
             user.email,
             'bar@example.com',
             commentaire.objet,
